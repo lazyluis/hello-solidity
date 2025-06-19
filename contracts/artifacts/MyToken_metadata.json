@@ -319,6 +319,24 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "mintAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "burn",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "decimals",
 				"outputs": [
@@ -372,6 +390,24 @@
 					}
 				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "mintAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "mint",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -639,11 +675,25 @@
 				"balanceOf(address)": {
 					"details": "See {IERC20-balanceOf}."
 				},
+				"burn(address,uint256)": {
+					"details": "This function can only be called by an authorized contract (e.g., ICS20)This function needs to allow burning of tokens from the Escrow contract",
+					"params": {
+						"amount": "Amount of tokens to burn",
+						"mintAddress": "Address to burn tokens from"
+					}
+				},
 				"decimals()": {
 					"details": "Returns the number of decimals used to get its user representation. For example, if `decimals` equals `2`, a balance of `505` tokens should be displayed to a user as `5.05` (`505 / 10 ** 2`). Tokens usually opt for a value of 18, imitating the relationship between Ether and Wei. This is the default value returned by this function, unless it's overridden. NOTE: This information is only used for _display_ purposes: it in no way affects any of the arithmetic of the contract, including {IERC20-balanceOf} and {IERC20-transfer}."
 				},
 				"eip712Domain()": {
 					"details": "returns the fields and values that describe the domain separator used by this contract for EIP-712 signature."
+				},
+				"mint(address,uint256)": {
+					"details": "This function can only be called by an authorized contract (e.g., ICS20)This function needs to allow minting tokens to the Escrow contract",
+					"params": {
+						"amount": "Amount of tokens to mint",
+						"mintAddress": "Address to mint tokens to"
+					}
 				},
 				"name()": {
 					"details": "Returns the name of the token."
@@ -671,7 +721,14 @@
 		},
 		"userdoc": {
 			"kind": "user",
-			"methods": {},
+			"methods": {
+				"burn(address,uint256)": {
+					"notice": "Burn tokens from the Escrow contract"
+				},
+				"mint(address,uint256)": {
+					"notice": "Mint new tokens to the Escrow contract"
+				}
+			},
 			"version": 1
 		}
 	},
@@ -843,12 +900,20 @@
 				"dweb:/ipfs/QmVUSvooZKEdEdap619tcJjTLcAuH6QBdZqAzWwnAXZAWJ"
 			]
 		},
-		"contracts/MyToken.sol": {
-			"keccak256": "0x93096fb53230a8e35d4ba798208c63b697720ad6bb3318dae4606529c68518c9",
+		"contracts/IMintableAndBurnable.sol": {
+			"keccak256": "0x10f79afe3c875532fe367fd690299ffe4252bce0a163bc4d3b4df340636e3752",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://e1841f9a392c116a4f222595f78d99fd71f5b6f55ad17f33553f2bff57750788",
-				"dweb:/ipfs/QmXBbxs3CNDencBbUKDMdeRG1WYdF2ekd8kr4SyYNiDZrD"
+				"bzz-raw://7248473a1a693d01013649920a9b45b938268367a7d266b8a53e4074ac2b9485",
+				"dweb:/ipfs/QmWL7G13PjtfzDyUG8quZdPe1poXSE88SKRBdUhUH5j7xS"
+			]
+		},
+		"contracts/MyToken.sol": {
+			"keccak256": "0x6ccc88ac879173161a677859f1793815a658ffcacff4234506a789e3dc219070",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7323611fac99d89ef66442850e9e16a2b8a9e2f47b149d0fa2b4d82820264ccd",
+				"dweb:/ipfs/QmdwhonEKmuz3cs1fc81VWsQW1mJudviTMsT1f3XDr446A"
 			]
 		}
 	},

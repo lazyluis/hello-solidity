@@ -1,0 +1,106 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "mintAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "burn",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "mintAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "mint",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"burn(address,uint256)": {
+					"details": "This function can only be called by an authorized contract (e.g., ICS20)This function needs to allow burning of tokens from the Escrow contract",
+					"params": {
+						"amount": "Amount of tokens to burn",
+						"mintAddress": "Address to burn tokens from"
+					}
+				},
+				"mint(address,uint256)": {
+					"details": "This function can only be called by an authorized contract (e.g., ICS20)This function needs to allow minting tokens to the Escrow contract",
+					"params": {
+						"amount": "Amount of tokens to mint",
+						"mintAddress": "Address to mint tokens to"
+					}
+				}
+			},
+			"title": "IMintableAndBurnable",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"burn(address,uint256)": {
+					"notice": "Burn tokens from the Escrow contract"
+				},
+				"mint(address,uint256)": {
+					"notice": "Mint new tokens to the Escrow contract"
+				}
+			},
+			"notice": "Interface for ERC20 tokens to be minted and burned by the ICS20 contract.",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/IMintableAndBurnable.sol": "IMintableAndBurnable"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/IMintableAndBurnable.sol": {
+			"keccak256": "0x10f79afe3c875532fe367fd690299ffe4252bce0a163bc4d3b4df340636e3752",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7248473a1a693d01013649920a9b45b938268367a7d266b8a53e4074ac2b9485",
+				"dweb:/ipfs/QmWL7G13PjtfzDyUG8quZdPe1poXSE88SKRBdUhUH5j7xS"
+			]
+		}
+	},
+	"version": 1
+}
